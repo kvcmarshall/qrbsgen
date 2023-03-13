@@ -5,7 +5,9 @@ Made possible with an integration to `Qiskit` SDK.
 
 ## Prerequisites
 
-Familiarity with `Qiskit` is useful - check it out [here]](https://qiskit.org/) .
+Familiarity with `Qiskit` is useful - check it out [here](https://qiskit.org/) .
+
+The specification and definition of the QRBS implemented here can be found in the following [publication](https://www.neasqc.eu/wp-content/uploads/2021/05/NEASQC_D6.2_QRBS-Models-Architecture-and-Formal-Specification-V1.5-Final.pdf) by V. Bonillo et al. and the wider NExt ApplicationS of Quantum Computing, or [NEASQC](https://www.neasqc.eu/about-the-project/) project. 
 
 ## Installation
 
