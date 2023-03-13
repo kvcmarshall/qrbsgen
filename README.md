@@ -5,12 +5,7 @@ Made possible with an integration to `Qiskit` SDK.
 
 ## Prerequisites
 
-Follow these instructions to install [Qiskit](https://qiskit.org/documentation/stable/0.24/install.html).
-
-You can also try:
-
-`pip install qiskit` 
-
+Familiarity with `Qiskit` is useful - check it out [here]](https://qiskit.org/) .
 
 ## Installation
 
@@ -21,7 +16,40 @@ You can also try:
 See the usage steps below to get started:
 
 ```
-TBC
+import qrbsgen as q
+
+# Instantiate your QuantumRuleBasedSystem
+rule_system = q.QuantumRuleBasedSystem()
+
+# Define and add rules using appropriate syntax (see below)
+rule = "IF ((A) AND ((B) OR (C))) THEN (R)"
+rule_terms, qubits = rule_system.add_rules([rule])
+
+# Perform quantum circuit
+rule_system.evaluate_rules(rule_terms, qubits)
+```
+Given the two-level system representing true or false outcomes, the probability of the above test will be a probabilistic result like so:
+
+```
+* Added rule IF ((A) AND ((B) OR (C))) THEN (R)
+* Probability of outcome:  0.378 
+```
+
+## Syntax 
+
+Currently, QRBS is limited to supporting inputs of two-level systems, as can be easily mapped to a two-level quantum system, or qubit.
+
+This means clauses, or variables, must be defined as `true` or `false`, `one` or `zero`. You can also define variables as `A` and `NOT A` for simplicity.
+
+Please define rules and clauses as follows:
+
+- Start with an `"IF"` statement in capital letters.
+- Follow with the rule antecedent and antecedent clauses, where `"IS"` is typed in capital letters where relevant e.g.: `A IS one`, `A IS true`, `(A is true)`, `A` or `(A)`.
+- Follow with a `"THEN"` statement in capital letters.
+- Finish with the rule consequet, where `"IS"` is typed in capital letters where relevant e.g.: `B IS one`, `B IS true`, `(B is true)`, `B` or `(B)`. 
+
+```
+"IF ((A IS true) AND ((B IS true) OR (C IS true))) THEN (R IS true)"
 ```
 
 ## Examples

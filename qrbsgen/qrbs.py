@@ -64,5 +64,5 @@ class QuantumRuleBasedSystem(object):
         result = job.result()
         counts = result.get_counts(circuit)['1']
         probability = counts / 1000
-        print("* Probability of outcome: ", probability, "%")
+        print("* Probability of outcome: ", probability)
         return probability
